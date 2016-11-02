@@ -3,21 +3,39 @@
 <head>
 	<meta charset="UTF-8">
 	<title>MLB Trivia</title>
+
+
+	<!-- link to CSS assets  -->
 	<link rel="stylesheet" type="text/css" href="assets/style.css">
-	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- link to twitter bootstrap -->
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- link to JQuery CDN (content delivery network) -->
+	<script
+	 src="https://code.jquery.com/jquery-3.1.1.min.js"
+	 integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+	 crossorigin="anonymous"></script>
+
+	 <!-- Link to javascript  -->
+	 <script type="text/javascript" src="assets/javascript/game.js"></script>
 
 </head>
 <body>
 
 <div class="container">
+
+		<!-- top row -->
 	<div class="row">
 		<div class="col-sm-12">
 			<h3>Major League Trivia</h3>
-			<button class="button" id="startButton">Start</button>
+			<button class="btn-primary" id="startButton">Start</button>
+			<button class="btn-danger" id="resetButton">Reset</button>
 		</div>
 	</div>
 <br>
 
+		<!-- 2nd row -->
 	<div class="row">
 		<div class="col-sm-12">
 			<div id="question">QUESTIONS GO HERE</div>
@@ -41,6 +59,7 @@
 
 
 </div>
+
 
 </body>
 </html>
