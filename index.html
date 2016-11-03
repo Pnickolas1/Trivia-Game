@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>MLB Trivia</title>
-
+ 
 
 	<!-- link to CSS assets  -->
 	<link rel="stylesheet" type="text/css" href="assets/style.css">
@@ -29,29 +29,30 @@
 	<div class="row">
 		<div class="col-sm-12">
 			<h3>Major League Trivia</h3>
-			<button class="btn-primary" id="startButton">Start</button>
-			<button class="btn-danger" id="resetButton">Reset</button>
+			
+			<button class="btn-info" id="startButton">Start</button>
+
 		</div>
 	</div>
 <br>
 
 		<!-- 2nd row -->
 	<div class="row">
-		<div class="col-sm-12">
-			<div id="question">QUESTIONS GO HERE</div>
+		<div class="col-sm-12" >
+			<div class="q-view s" id="question">QUESTIONS GO HERE</div>
+			
+			<img id="choiceIMG"  height="150" class="a-view s" src="assets/images/mlb.png">
+		    <h3 class="a-view s"  id="resText"></h3>
 		</div>
 
-		<div class="col-sm-12">
-			<img src="assets/images/mlb.png">
-		</div>		
+		
+			
+	
 
 
 		<div class="col-sm-12">
-			<ul>
-				<button type="button" class="btn btn-primary btn-block" id="answerOne">A</button>
-				<button type="button" class="btn btn-primary btn-block" id="answerTwo">B</button>
-				<button type="button" class="btn btn-primary btn-block" id="answerThree">C</button>
-				<button type="button" class="btn btn-primary btn-block" id="answerFour">D</button>
+			<ul class="choices" id="choicesUL">
+           
 			</ul>
 		</div>
 	</div>
