@@ -73,11 +73,10 @@ var game = {
             $("#resText").html("RIGHT!")
             game.correct += 1;
             $("#correctScore").html("Correct: " + game.correct);
-            $("wrongScore").html("Wrong: ");
         }else{
            $("#resText").html("Wrong!")
            game.wrong += 1;
-           $("wrongScore").html("Wrong: " + game.wrong);  
+           $("#wrongScore").html("Wrong: " + game.wrong);  
 
         }
         $('.a-view').show();
@@ -98,7 +97,7 @@ var startBtn = document.querySelector("#startButton");
 $("#startButton").on('click', function(){
   game.seen = 0;
   game.correct = 0;
-  game.incorrect = 0;
+  game.wrong = 0;
  
   console.log(this)
   if(startBtn.className === "btn-info"){
