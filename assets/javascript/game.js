@@ -15,7 +15,7 @@ var choiceIMG = document.getElementById('choiceIMG');
 var game = {
   seen: 0, 
   correct: 0,
-  incorrect: 0,
+  wrong: 0,
   currentQ: null,
   questions: [
     {   imgSrc: "http://bronxbaseballdaily.com/wp-content/uploads/2012/09/wee-willie-keeler1-462x540.jpg",
@@ -70,13 +70,14 @@ var game = {
     },
     checkAnswer: function(liIndex){
         if(parseInt(liIndex) === game.currentQ.a){
-            $("#resText").html("RIGHT!!!")
+            $("#resText").html("RIGHT!")
             game.correct += 1;
             $("#correctScore").html("Correct: " + game.correct);
+            $("wrongScore").html("Wrong: ");
         }else{
-           $("#resText").html("Wrong!!!")
-           game.incorrect += 1;
-           $("wrongScore").html("Wrong: " + game.incorrect);  
+           $("#resText").html("Wrong!")
+           game.wrong += 1;
+           $("wrongScore").html("Wrong: " + game.wrong);  
 
         }
         $('.a-view').show();
@@ -103,8 +104,19 @@ $("#startButton").on('click', function(){
   if(startBtn.className === "btn-info"){
     startBtn.innerHTML = "restart";
     startBtn.className = "btn-danger";
+
   }
    game.startGame();
+
+
+// refresh page if you click restart //
+$("#startButton").on('click',function(){
+        if(startBtn.innerHTML === "restart"){
+                window.location.reload();
+        };
+});
+
+
 
 });
 choicesUL.onclick = function(event){
