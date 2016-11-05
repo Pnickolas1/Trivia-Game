@@ -16,6 +16,7 @@ var game = {
   seen: 0, 
   correct: 0,
   wrong: 0,
+  total: 0,
   currentQ: null,
   questions: [
     {   imgSrc: "http://bronxbaseballdaily.com/wp-content/uploads/2012/09/wee-willie-keeler1-462x540.jpg",
@@ -60,7 +61,7 @@ var game = {
         console.log('currentQuestion', currentQuestion);
         $('.a-view').hide();
         $('.q-view').show();
-        var theChoiceLIs = game.fillChoices(currentQuestion.choices)
+        var theChoiceLIs = game.fillChoices(currentQuestion.choices);
         console.log('in fillQuestion: theChoiceLIs', theChoiceLIs);
         choicesUL.innerHTML = theChoiceLIs;
         choiceIMG.src = currentQuestion.imgSrc;
@@ -72,12 +73,15 @@ var game = {
         if(parseInt(liIndex) === game.currentQ.a){
             $("#resText").html("RIGHT!")
             game.correct += 1;
+            game.total += 1;
             $("#correctScore").html("Correct: " + game.correct);
+            $("#total").html("Total: " + game.total);
         }else{
            $("#resText").html("Wrong!")
            game.wrong += 1;
+           game.total += 1;
            $("#wrongScore").html("Wrong: " + game.wrong);  
-
+           $("#total").html("Total: " + game.total);
         }
         $('.a-view').show();
         $('.q-view').hide();
@@ -87,7 +91,11 @@ var game = {
         setTimeout(function(){
             game.fillQuestion();
         }, 1000);
-    }
+    },
+    rePlay: function(){
+        if(game.total === 4){
+            window.location.reload()}
+    },
 
 };//game
 window.q = game.questions;
@@ -106,6 +114,9 @@ $("#startButton").on('click', function(){
 
   }
    game.startGame();
+
+// restart game when all five questions have been seen (in this case responded to)
+
 
 
 // refresh page if you click restart //
