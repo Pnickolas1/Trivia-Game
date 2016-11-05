@@ -15,6 +15,7 @@ var choiceIMG = document.getElementById('choiceIMG');
 var game = {
   seen: 0, 
   correct: 0,
+  incorrect: 0,
   currentQ: null,
   questions: [
     {   imgSrc: "http://bronxbaseballdaily.com/wp-content/uploads/2012/09/wee-willie-keeler1-462x540.jpg",
@@ -41,9 +42,8 @@ var game = {
     fillChoices: function(choices){
         console.log('in fillChoices choices', choices)
         return choices.reduce(liBuilder, "");
-
-
     },
+
     startGame: function(){
         var currentQuestion = game.questions[game.seen];
         console.log('currentQuestion', currentQuestion);
@@ -51,7 +51,6 @@ var game = {
         console.log('in fillQuestion: theChoiceLIs', theChoiceLIs);
         choicesUL.innerHTML = theChoiceLIs;
         choiceIMG.src = currentQuestion.imgSrc;
-
         questionsPrompt.innerHTML = currentQuestion.q;
         game.currentQ = currentQuestion;
 
@@ -73,8 +72,12 @@ var game = {
         if(parseInt(liIndex) === game.currentQ.a){
             $("#resText").html("RIGHT!!!")
             game.correct += 1;
+            $("#correctScore").html("Correct: " + game.correct);
         }else{
-           $("#resText").html("Wrong!!!")   
+           $("#resText").html("Wrong!!!")
+           game.incorrect += 1;
+           $("wrongScore").html("Wrong: " + game.incorrect);  
+
         }
         $('.a-view').show();
         $('.q-view').hide();
@@ -94,6 +97,7 @@ var startBtn = document.querySelector("#startButton");
 $("#startButton").on('click', function(){
   game.seen = 0;
   game.correct = 0;
+  game.incorrect = 0;
  
   console.log(this)
   if(startBtn.className === "btn-info"){
